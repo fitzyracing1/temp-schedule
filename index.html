@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>temp-schedule</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; font:16px/1.45 system-ui,sans-serif; background:#0b0d10; color:#e8edf2; }
+  main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:1.6rem; letter-spacing:.04em; margin:0 0 8px; }
+  .sub { color:#9aa6b2; margin:0 0 28px; }
+  pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  pre { background:#151920; border:1px solid #2a323c; padding:16px; overflow:auto; }
+  .passes { display:grid; gap:10px; margin:24px 0; }
+  .pass { border:1px solid #2a323c; background:#12161c; padding:14px 16px; }
+  .pass b { display:block; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#8bd0ff; }
+  a { color:#8bd0ff; }
+  footer { margin-top:36px; color:#9aa6b2; font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>temp-schedule</h1>
+  <p class="sub">Three-pass temperature runner. T means temperature.</p>
+  <pre>Temp_schedule = ["high", "low", "low"]
+# high   → invent
+# low    → build
+# low    → freeze + enforce metric</pre>
+  <div class="passes">
+    <div class="pass"><b>Pass 1 · high · T=1.0</b>Invent the idea. Do not ship it.</div>
+    <div class="pass"><b>Pass 2 · low · T=0.4</b>Build the file, plan, or code.</div>
+    <div class="pass"><b>Pass 3 · low · T=0.4</b>Freeze and enforce 2 × x × c − d = 1.</div>
+  </div>
+  <p>Do not skip. Do not return to high after pass 1. Both lows share the same T. The third low only changes the job.</p>
+  <p>Runner:</p>
+  <pre>python scripts/temp_schedule_runner.py --job "goal text" --lane BUILD</pre>
+  <p>Lanes: BUILD · SHIP · FIND · DESIGN · TRACK · SCHEDULE · COMPUTE</p>
+  <footer>
+    <a href="https://github.com/fitzyracing1/temp-schedule">repo</a>
+    ·
+    <a href="https://fitzyracing1.github.io/temp-schedule-barrage/">barrage site</a>
+  </footer>
+</main>
+</body>
+</html>
